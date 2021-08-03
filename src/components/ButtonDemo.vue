@@ -1,5 +1,5 @@
 <template>
   <div>
-    switch
+    buttondemo
   </div>
 </template>
