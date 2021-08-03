@@ -1,13 +1,15 @@
 <template>
-  <div>导航栏</div> |
-  <router-link to="/dad" >爸爸</router-link> |
-  <router-link to="/son">儿子</router-link>
-  <hr>
   <router-view></router-view>
 </template>
 
-<script>
+<script lang="ts">
+import { provide, ref } from 'vue';
+
 export default {
-  name: 'App'
-}
+  name: "App",
+  setup() {
+    const menuVisible = ref(false)
+    provide('menuVisible', menuVisible)
+  },
+};
 </script>
