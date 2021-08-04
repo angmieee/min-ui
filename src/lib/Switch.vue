@@ -1,55 +1,65 @@
 <template>
-  <button @click="toggle" :class="{checked}">
-    <span></span>
-  </button>
+	<button @click="toggle" :class="{ checked: value }">
+		<span></span>
+	</button>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
-export default {
-  setup() {
-    const checked = ref(false)
+	export default {
+		props: {
+			value: Boolean,
+		},
 
-    const toggle = () => {
-      checked.value = !checked.value
-    }
+		setup(props, context) {
+			const toggle = () => {
+				context.emit("update:value", !props.value);
+			};
 
-    return {
-      checked,
-      toggle
-    }
-  }
-}
+			return {
+				toggle,
+			};
+		},
+	};
 </script>
 
 <style lang="scss" scoped>
-$h: 22px;
-$h2: $h - 4px;
-button {
-  height: $h;
-  width: $h * 2;
-  border: none;
-  background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
-  background-color: #bfbfbf;
-  border-radius: $h/2;
-  position: relative;
-  cursor: pointer;
-}
-span {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  height: $h2;
-  width: $h2;
-  background: white;
-  border-radius: $h2 / 2;
-  transition: all .25s;
-}
+	$h: 22px;
+	$h2: $h - 4px;
+	button {
+		height: $h;
+		width: $h * 2;
+		border: none;
+		background-color: #bfbfbf;
+		border-radius: $h/2;
+		position: relative;
+		cursor: pointer;
+    &.checked {
+      background-color: #1890ff;
+    }
+    &.checked > span {
+      left: calc(100% - #{$h2} - 2px);
+    }
+    &:active {
+      > span {
+        width: $h2 + 4px;
+      }
+    }
+    &.checked:active {
+      > span {
+        width: $h2 + 4px;
+        margin-left: -4px;
+      }
+    }
+    span {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      height: $h2;
+      width: $h2;
+      background: white;
+      border-radius: $h2 / 2;
+      transition: all 0.25s;
+    }
+	}
 
-button.checked {
-  background-color: #1890ff;
-}
-button.checked > span {
-  left: calc(100% - #{$h2} - 2px);
-}
 </style> 
