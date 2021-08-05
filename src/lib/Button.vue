@@ -1,5 +1,5 @@
 <template>
-	<button class="gulu-button" :class="{ [`gulu-theme-${theme}`]: theme }">
+	<button class="gulu-btn" :class="{ [`gulu-btn-${theme}`]: theme }">
 		<slot />
 	</button>
 </template>
@@ -21,7 +21,7 @@
 	$color: #333;
 	$blue: #40a9ff;
 	$radius: 4px;
-	.gulu-button {
+	.gulu-btn {
 		box-sizing: border-box;
 		height: $h;
 		padding: 0 12px;
@@ -48,6 +48,24 @@
 		}
 		&::-moz-focus-inner {
 			border: 0;
+		}
+		&.gulu-btn-link {
+			border-color: transparent;
+			box-shadow: none;
+			color: $blue;
+			&:hover,
+			&:focus {
+				color: lighten($blue, 10%);
+			}
+		}
+		&.gulu-btn-text {
+			border-color: transparent;
+			box-shadow: none;
+			color: inherit;
+			&:hover,
+			&:focus {
+				background: darken(white, 5%);
+			}
 		}
 	}
 </style>
