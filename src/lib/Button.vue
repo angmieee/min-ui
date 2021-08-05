@@ -84,17 +84,15 @@
 				background: darken(white, 5%);
 			}
 		}
-		&.gulu-btn-button {
-			&.gulu-btn-big {
-				font-size: 24px;
-				height: 48px;
-				padding: 0 16px;
-			}
-			&.gulu-btn-small {
-				font-size: 12px;
-				height: 20px;
-				padding: 0 4px;
-			}
+		&.gulu-btn-big {
+			font-size: 24px;
+			height: 48px;
+			padding: 0 16px;
+		}
+		&.gulu-btn-small {
+			font-size: 12px;
+			height: 20px;
+			padding: 0 4px;
 		}
 	}
 </style>
