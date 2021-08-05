@@ -1,16 +1,33 @@
 <template>
-	<button class="gulu-btn" :class="{ [`gulu-btn-${theme}`]: theme }">
+	<button class="gulu-btn" :class="classes">
 		<slot />
 	</button>
 </template>
 
 <script>
+	import { computed } from "vue";
 	export default {
 		props: {
 			theme: {
 				type: String,
 				default: "button",
 			},
+			size: {
+				type: String,
+				default: "normal",
+			},
+		},
+		setup({ theme, size }, context) {
+			const classes = computed(() => {
+				return {
+					[`gulu-btn-${theme}`]: theme,
+					[`gulu-btn-${size}`]: size,
+				};
+			});
+
+			return {
+				classes,
+			};
 		},
 	};
 </script>
@@ -65,6 +82,18 @@
 			&:hover,
 			&:focus {
 				background: darken(white, 5%);
+			}
+		}
+		&.gulu-btn-button {
+			&.gulu-btn-big {
+				font-size: 24px;
+				height: 48px;
+				padding: 0 16px;
+			}
+			&.gulu-btn-small {
+				font-size: 12px;
+				height: 20px;
+				padding: 0 4px;
 			}
 		}
 	}
