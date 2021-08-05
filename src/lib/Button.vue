@@ -1,6 +1,6 @@
 <template>
 	<button class="gulu-btn" :class="classes" :disabled="disabled">
-		<span v-if="loading" class="gulu-loadingIndicator"></span>
+		<span v-if="loading" class="gulu-loading-indicator"></span>
 		<slot />
 	</button>
 </template>
@@ -174,7 +174,7 @@
 				color: $grey;
 			}
 		}
-		> .gulu-loadingIndicator {
+		> .gulu-loading-indicator {
 			width: 14px;
 			height: 14px;
 			display: inline-block;
