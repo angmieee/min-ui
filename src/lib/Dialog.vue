@@ -12,8 +12,8 @@
 					<p>第二行字</p>
 				</main>
 				<footer>
-					<Button level="main">OK</Button>
-					<Button>Cancel</Button>
+					<Button @click="onOk" level="main">OK</Button>
+					<Button @click="onCancel">Cancel</Button>
 				</footer>
 			</div>
 		</div>
@@ -34,6 +34,14 @@
 			maskClosable: {
 				type: Boolean,
 				default: true
+			},
+			/* 点击确认回调 */
+			onOk: {
+				type: Function
+			},
+			/* 取消按钮的回调 */
+			onCancel: {
+				type: Function
 			}
 		},
 		components: {
@@ -48,9 +56,17 @@
 					close()
 				}
 			}
+			const onOk = () => {
+				props.onOk?.()
+			}
+			const onCancel = () => {
+				props.onCancel?.()
+			}
 			return {
 				close,
-				onClickOverlay
+				onClickOverlay,
+				onOk,
+				onCancel
 			}
 		}
 	};

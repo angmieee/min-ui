@@ -3,7 +3,11 @@
 		<h1>Dialog 示例</h1>
 		<h2>示例1</h2>
 		<Button @click="toggle">toggle</Button>
-		<Dialog :maskClosable="false" v-model:visible="visible" />
+		<Dialog 
+      :maskClosable="false" 
+      v-model:visible="visible"
+      :onOk="()=>visible = false"
+      :onCancel="()=>visible = false" />
 	</div>
 </template>
 
