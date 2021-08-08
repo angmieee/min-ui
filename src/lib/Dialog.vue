@@ -1,6 +1,6 @@
 <template>
 	<template v-if="visible">
-		<div class="gulu-dialog-overlay"></div>
+		<div @click="onClickOverlay" class="gulu-dialog-overlay"></div>
 		<div class="gulu-dialog-wrapper">
 			<div class="gulu-dialog">
 				<header>
@@ -25,10 +25,16 @@
 	import Button from "./Button.vue";
 	export default {
 		props: {
+			/* 对话框是否可见 */
 			visible: {
 				type: Boolean,
 				default: false,
 			},
+			/* 点击蒙层是否允许关闭 */
+			maskClosable: {
+				type: Boolean,
+				default: true
+			}
 		},
 		components: {
 			Button,
@@ -37,8 +43,14 @@
 			const close = () => {
 				context.emit('update:visible', false)
 			}
+			const onClickOverlay = () => {
+				if (props.maskClosable) {
+					close()
+				}
+			}
 			return {
-				close
+				close,
+				onClickOverlay
 			}
 		}
 	};
