@@ -3,8 +3,8 @@
   <h2>示例1</h2>
   <div>
     <Tabs>
-      <Tab>aaa</Tab>
-      <Tab>aaa</Tab>
+      <Tab title="标签1">aaa</Tab>
+      <Tab title="标签2">aaa</Tab>
     </Tabs>
   </div>
 </template>

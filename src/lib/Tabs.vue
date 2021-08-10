@@ -1,6 +1,7 @@
 <template>
 	<div>
-        Tabs
+        <div v-for="(item, index) in titles" :key="index" >{{item}}</div>
+        <component v-for="(item, index) in defaults" :is="item" :key="index"></component>
     </div>
 </template>
 
@@ -14,8 +15,10 @@
                     throw new Error("子标签必须为 Tab");
                 }
             })
+            const titles = defaults.map(tag=>tag.props.title)
             return {
-                defaults
+                defaults,
+                titles
             }
         }
     };
