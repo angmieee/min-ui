@@ -2,7 +2,7 @@
 	<button
 		class="gulu-switch"
 		@click="toggle"
-		:class="{ 'gulu-switch-checked': value }"
+		:class="{ 'gulu-switch-checked': value, 'gulu-switch-disabled': disabled }"
 	>
 		<span class="gulu-switch-handle"></span>
 	</button>
@@ -11,7 +11,16 @@
 <script lang="ts">
 	export default {
 		props: {
-			value: Boolean,
+			/* 指定当前是否选中 */
+			value: {
+				type: Boolean,
+				default: false
+			},
+			/* 是否禁用 */
+			disabled: {
+				type: Boolean,
+				default: false
+			}
 		},
 
 		setup(props, context) {
@@ -63,6 +72,10 @@
 				width: $h2 + 4px;
 				margin-left: -4px;
 			}
+		}
+		&.gulu-switch-disabled {
+			cursor: not-allowed;
+			opacity: .4;
 		}
 	}
 </style> 
