@@ -1,41 +1,23 @@
 <template>
 	<div>
 		<h1>Dialog 示例</h1>
-		<h2>示例1</h2>
-		<Button @click="toggle">toggle</Button>
-		<Dialog
-			:maskClosable="false"
-			v-model:visible="visible"
-			:onOk="() => (visible = false)"
-			:onCancel="() => (visible = false)"
-		>
-			<template v-slot:title>
-				<h2>标题</h2>
-			</template>
-			<template v-slot:content>
-				<p>这里是内容</p>
-			</template>
-		</Dialog>
+		<Demo :component="DialogDemo1" />
+		<Demo :component="DialogDemo2" />
 	</div>
 </template>
 
 <script>
-	import Dialog from "../lib/Dialog.vue";
-	import Button from "../lib/Button.vue";
-	import { ref } from "vue";
+	import Demo from "./Demo.vue";
+	import DialogDemo1 from "./Dialog.demo1.vue";
+	import DialogDemo2 from "./Dialog.demo2.vue";
 	export default {
 		components: {
-			Dialog,
-			Button,
+			Demo
 		},
-		setup(props) {
-			const visible = ref(false);
-			const toggle = () => {
-				visible.value = !visible.value;
-			};
+		setup() {
 			return {
-				visible,
-				toggle,
+				DialogDemo1,
+				DialogDemo2
 			};
 		},
 	};
