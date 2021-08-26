@@ -1,11 +1,19 @@
 <template>
-	<div class="demo">
+	<div
+		class="demo"
+		:class="{ hover: isHover }"
+		@mouseover="isHover = true"
+		@mouseout="isHover = false"
+	>
 		<h2>{{ component.__sourceCodeTitle }}</h2>
 		<div class="demo-component">
 			<Component :is="component" />
 		</div>
-		<div class="demo-actions">
-			<Button @click="toggleVisible">查看代码</Button>
+		<div class="demo-actions" @click="toggleVisible">
+			<svg>
+				<use xlink:href="#icon-down"></use>
+			</svg>
+			<span>{{ isHover ? "显示代码" : null }}</span>
 		</div>
 		<div class="demo-code" v-if="codeVisible">
 			<pre class="language-html" v-html="html" />
@@ -37,8 +45,14 @@
 				codeVisible.value = !codeVisible.value;
 			};
 
+			const isHover = ref(false);
+
 			const html = computed(() => {
-				return Prism.highlight(props.component.__sourceCode, Prism.languages.html, "html");
+				return Prism.highlight(
+					props.component.__sourceCode,
+					Prism.languages.html,
+					"html"
+				);
 			});
 
 			return {
@@ -46,16 +60,18 @@
 				html,
 				codeVisible,
 				toggleVisible,
+				isHover,
 			};
 		},
 	};
 </script>
 
 <style lang="scss" scoped>
-	$border-color: #d9d9d9;
+	$border-color: #ebebeb;
 	.demo {
 		border: 1px solid $border-color;
 		margin: 16px 0 32px;
+		border-radius: 4px;
 		> h2 {
 			font-size: 20px;
 			padding: 8px 16px;
@@ -67,6 +83,17 @@
 		&-actions {
 			padding: 8px 16px;
 			border-top: 1px dashed $border-color;
+			cursor: pointer;
+			text-align: center;
+			color: #d3dce6;
+			svg {
+				width: 12px;
+				height: 12px;
+				transition: .3s;
+			}
+			&:hover {
+				background-color: #f9fafc;
+			}
 		}
 		&-code {
 			padding: 8px 16px;
@@ -75,6 +102,16 @@
 				line-height: 1.1;
 				font-family: Consolas, "Courier New", Courier, monospace;
 				margin: 0;
+			}
+		}
+		&.hover {
+			transition: 0.2s;
+			box-shadow: 0 0 8px 0 rgb(232 237 250 / 60%),
+				0 2px 4px 0 rgb(232 237 250 / 50%);
+			.demo-actions {
+				> svg {
+					transform: translateX(-40px);
+				}
 			}
 		}
 	}
