@@ -10,10 +10,16 @@
 			<Component :is="component" />
 		</div>
 		<div class="demo-actions" @click="toggleVisible">
-			<svg>
+			<svg v-show="!codeVisible">
 				<use xlink:href="#icon-down"></use>
 			</svg>
-			<span>{{ isHover ? "显示代码" : null }}</span>
+			<svg v-show="codeVisible">
+				<use xlink:href="#icon-up"></use>
+			</svg>
+			<span v-show="isHover">
+				<span v-show="!codeVisible">显示代码</span>
+				<span v-show="codeVisible">隐藏代码</span>
+			</span>
 		</div>
 		<div class="demo-code" v-if="codeVisible">
 			<pre class="language-html" v-html="html" />
@@ -86,13 +92,24 @@
 			cursor: pointer;
 			text-align: center;
 			color: #d3dce6;
-			svg {
+			> svg {
 				width: 12px;
 				height: 12px;
-				transition: .3s;
+				transition: all 0.3s;
+				fill: #d3dce6;
+			}
+			> span {
+				transition: all 0.3s;
+				display: inline-block;
 			}
 			&:hover {
 				background-color: #f9fafc;
+				> svg {
+					fill: #4f8de7;
+				}
+				> span {
+					color: #4f8de7;
+				}
 			}
 		}
 		&-code {
@@ -110,7 +127,7 @@
 				0 2px 4px 0 rgb(232 237 250 / 50%);
 			.demo-actions {
 				> svg {
-					transform: translateX(-40px);
+					transform: translateX(-10px);
 				}
 			}
 		}
