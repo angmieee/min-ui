@@ -82,7 +82,7 @@
 		}
 	}
 	aside {
-		background: lightblue;
+		border-right: 1px solid #f0f0f0;
 		width: 150px;
 		padding: 16px 0;
 		position: fixed;
@@ -103,7 +103,16 @@
 					text-decoration: none;
 				}
 				.router-link-active {
-					background: white;
+					// background: #d2f8eb;
+					background-color: #f0fcef;
+					color: #52b69b;
+					&::after {
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						border-right: 3px solid #1890ff;
+					}
 				}
 			}
 		}

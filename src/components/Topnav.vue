@@ -21,8 +21,8 @@
 		props: {
 			toggleMenuVisible: {
 				type: Boolean,
-				default: false
-			}
+				default: false,
+			},
 		},
 		setup() {
 			const menuVisible = inject<Ref<Boolean>>("menuVisible");
@@ -38,7 +38,8 @@
 	};
 </script>
 <style lang="scss" scoped>
-	$color: #007974;
+	$color: #52b69b;
+	$darkColor: #007974;
 	.topnav {
 		color: $color;
 		display: flex;
@@ -62,6 +63,13 @@
 			flex-wrap: nowrap;
 			> li {
 				margin: 0 1em;
+				a {
+					text-decoration: none;
+					&:hover {
+						transition: 0.3s;
+						color: $darkColor;
+					}
+				}
 			}
 		}
 		> .toggleAside {
