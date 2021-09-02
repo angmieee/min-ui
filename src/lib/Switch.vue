@@ -3,6 +3,7 @@
 		class="gulu-switch"
 		@click="toggle"
 		:class="{ 'gulu-switch-checked': value, 'gulu-switch-disabled': disabled }"
+		:disabled="disabled"
 	>
 		<span class="gulu-switch-handle"></span>
 	</button>
