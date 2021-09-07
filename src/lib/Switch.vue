@@ -2,7 +2,10 @@
 	<button
 		class="gulu-switch"
 		@click="toggle"
-		:class="{ 'gulu-switch-checked': value, 'gulu-switch-disabled': disabled }"
+		:class="{
+			'gulu-switch-checked': value,
+			'gulu-switch-disabled': disabled,
+		}"
 		:disabled="disabled"
 	>
 		<span class="gulu-switch-handle"></span>
@@ -15,13 +18,13 @@
 			/* 指定当前是否选中 */
 			value: {
 				type: Boolean,
-				default: false
+				default: false,
 			},
 			/* 是否禁用 */
 			disabled: {
 				type: Boolean,
-				default: false
-			}
+				default: false,
+			},
 		},
 
 		setup(props, context) {
@@ -47,16 +50,17 @@
 		border-radius: $h/2;
 		position: relative;
 		cursor: pointer;
-    .gulu-switch-handle {
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      height: $h2;
-      width: $h2;
-      background: white;
-      border-radius: $h2 / 2;
-      transition: all 0.25s;
-    }
+		.gulu-switch-handle {
+			position: absolute;
+			top: 2px;
+			left: 2px;
+			height: $h2;
+			width: $h2;
+			background: white;
+			box-shadow: 0 2px 4px #00230b33;
+			border-radius: $h2 / 2;
+			transition: all 0.2s;
+		}
 		&.gulu-switch-checked {
 			background-color: #1890ff;
 			> .gulu-switch-handle {
@@ -76,7 +80,7 @@
 		}
 		&.gulu-switch-disabled {
 			cursor: not-allowed;
-			opacity: .4;
+			opacity: 0.4;
 		}
 	}
 </style> 
