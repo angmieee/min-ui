@@ -3,7 +3,7 @@
 		<div class="topnavAndBanner">
 			<Topnav />
 			<div class="banner">
-				<h1>轱辘UI</h1>
+				<h1>Min UI</h1>
 				<h2>一个厉害的 UI 框架</h2>
 				<p class="actions">
 					<a href="https://github.com">GitHub</a>
@@ -49,11 +49,13 @@
 	$color: #007974;
 	$border-radius: 4px;
 	.topnavAndBanner {
-		background: linear-gradient(
-			145deg,
-			rgba(227, 255, 253, 1) 0%,
-			rgba(183, 233, 230, 1) 100%
-		);
+		// background: linear-gradient(
+		// 	145deg,
+		// 	rgba(204, 223, 239, 1) 0%,
+		// 	rgba(121, 160, 204, 1) 100%
+		// );
+		// background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+		background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
 		clip-path: ellipse(80% 60% at 50% 40%);
 	}
 	.features {

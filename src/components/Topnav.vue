@@ -2,7 +2,7 @@
 	<div class="topnav">
 		<div class="logo">
 			<svg class="icon" aria-hidden="true">
-				<use xlink:href="#icon-logo"></use>
+				<use xlink:href="#icon-huo"></use>
 			</svg>
 		</div>
 		<ul class="menu">
@@ -43,7 +43,7 @@
 	.topnav {
 		color: $color;
 		display: flex;
-		padding: 16px;
+		padding: 16px 50px;
 		position: fixed;
 		top: 0;
 		left: 0;
