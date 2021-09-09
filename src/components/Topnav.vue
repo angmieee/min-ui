@@ -1,13 +1,15 @@
 <template>
 	<div class="topnav">
 		<div class="logo">
-			<svg class="icon" aria-hidden="true">
-				<use xlink:href="#icon-huo"></use>
-			</svg>
+			<router-link to="/">			
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-huo"></use>
+				</svg>
+			</router-link>
 		</div>
 		<ul class="menu">
 			<li>
-				<router-link to="/doc">文档</router-link>
+				<router-link to="/doc/intro">文档</router-link>
 			</li>
 		</ul>
 		<svg v-if="toggleMenuVisible" class="toggleAside" @click="toggleMenu">
@@ -52,7 +54,7 @@
 		> .logo {
 			max-width: 6em;
 			margin-right: auto;
-			> .icon {
+			.icon {
 				height: 32px;
 				width: 32px;
 			}

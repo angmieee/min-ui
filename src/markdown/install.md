@@ -3,13 +3,13 @@
 打开终端运行下列命令：
 
 ```
-npm install king-ui
+npm install min-ui-vue
 ```
 
 或
 
 ```
-yarn add king-ui
+yarn add min-ui-vue
 ```
 
 下一节：[开始使用](#/doc/get-started)
