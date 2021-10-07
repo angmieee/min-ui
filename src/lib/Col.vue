@@ -1,13 +1,11 @@
 <template>
-	<div
-		class="col"
-		:class="[span && `col-${span}`, offset && `offset-${offset}`]"
-	>
+	<div class="col" :ref="colElement" :class="colClass" :style="colStyle">
 		<slot></slot>
 	</div>
 </template>
 
 <script>
+	import { ref, inject, computed } from "vue";
 	export default {
 		props: {
 			span: {
@@ -16,6 +14,29 @@
 			offset: {
 				type: [Number, String],
 			},
+		},
+		setup(props) {
+            const {span, offset} = props
+
+			const gutter = inject("gutter");
+
+			const colClass = computed(() => [
+				span && `col-${span}`,
+				offset && `offset-${offset}`,
+			]);
+
+			const colStyle = computed(() => ({
+				paddingLeft: gutter / 2 + "px",
+				paddingRight: gutter / 2 + "px",
+			}));
+
+			const colElement = ref(null);
+			return {
+				colElement,
+				gutter,
+                colStyle,
+                colClass
+			};
 		},
 	};
 </script>
