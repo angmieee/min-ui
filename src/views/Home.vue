@@ -4,7 +4,7 @@
 			<Topnav />
 			<div class="banner">
 				<h1>Min UI</h1>
-				<h2>一个厉害的 UI 框架</h2>
+				<h2>一个基于 Vue3 的 UI 框架</h2>
 				<p class="actions">
 					<a href="https://github.com/angmieee/min-ui" target="_blank">GitHub</a>
 					<router-link to="/doc/intro">开始</router-link>
@@ -18,13 +18,13 @@
 						<use xlink:href="#icon-vue"></use>
 					</svg>
 					<h3>基于 Vue 3</h3>
-					<p>骄傲地使用了 Vue 3 Composition API</p>
+					<p>全面拥抱了 Vue 3 Composition API</p>
 				</li>
 				<li>
 					<svg>
 						<use xlink:href="#icon-ts"></use>
 					</svg>
-					<h3>基于 TypeScript</h3>
+					<h3>使用 TypeScript</h3>
 					<p>源代码采用 TypeScript 书写（非严格检查）</p>
 				</li>
 				<li>
@@ -45,7 +45,8 @@
 	};
 </script>
 <style lang="scss" scoped>
-	$green: #02bcb0;
+	// $green: #02bcb0;
+	$green: #20e3b2;
 	$color: #007974;
 	$border-radius: 4px;
 	.topnavAndBanner {
@@ -55,7 +56,7 @@
 		// 	rgba(121, 160, 204, 1) 100%
 		// );
 		// background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-		background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+		background-image: linear-gradient(to top, #99f2c8 0%, #FFFDE4 100%);
 		clip-path: ellipse(80% 60% at 50% 40%);
 	}
 	.features {
