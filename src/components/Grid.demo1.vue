@@ -2,40 +2,34 @@
 常规使用
 </demo>
 <template>
-	<div>
-		<Row>
-			<Col>col</Col>
-		</Row>
-		<Row>
-			<Col>col-12</Col>
-			<Col>col-12</Col>
-		</Row>
-		<Row>
-			<Col>col-8</Col>
-			<Col>col-8</Col>
-			<Col>col-8</Col>
-		</Row>
-		<Row>
-			<Col>col-6</Col>
-			<Col>col-6</Col>
-			<Col>col-6</Col>
-			<Col>col-6</Col>
-		</Row>
-	</div>
+	<Row>
+		<Col>col</Col>
+	</Row>
+	<Row>
+		<Col span="12">col-12</Col>
+		<Col span="12">col-12</Col>
+	</Row>
+	<Row>
+		<Col span="8">col-8</Col>
+		<Col span="8">col-8</Col>
+		<Col span="8">col-8</Col>
+	</Row>
+	<Row>
+		<Col span="6">col-6</Col>
+		<Col span="6">col-6</Col>
+		<Col span="6">col-6</Col>
+		<Col span="6">col-6</Col>
+	</Row>
 </template>
 
 <script>
 	import { Row, Col } from "../lib/index";
-	import { ref } from "vue";
 	export default {
 		components: {
 			Row,
 			Col,
 		},
-		setup() {
-			return {};
-		},
 	};
 </script>
 
-<style lang='stylus' scoped></style>
+<style lang='scss' scoped></style>
