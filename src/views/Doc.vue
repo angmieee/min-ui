@@ -61,22 +61,28 @@
 							<span class="chinese">折叠面板</span>
 						</router-link>
 					</li>
-					<li>
+					<!-- <li>
 						<router-link to="/doc/popover">
 							<span>Popover</span>
 							<span class="chinese">气泡卡片</span>
 						</router-link>
-					</li>
-					<li>
+					</li> -->
+					<!-- <li>
 						<router-link to="/doc/icon">
 							<span>Icon</span>
 							<span class="chinese">图标</span>
 						</router-link>
-					</li>
+					</li> -->
 					<li>
 						<router-link to="/doc/input">
 							<span>Input</span>
 							<span class="chinese">输入框</span>
+						</router-link>
+					</li>
+					<li>
+						<router-link to="/doc/table">
+							<span>Table</span>
+							<span class="chinese">表格</span>
 						</router-link>
 					</li>
 				</ol>
