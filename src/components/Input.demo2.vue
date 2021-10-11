@@ -1,9 +1,9 @@
 <demo>
-基础用法
+禁用状态
 </demo>
 
 <template>
-  <Input placeholder="Please input" />
+  <Input placeholder="Please input" disabled />
 </template>
 
 <script lang="ts">
@@ -16,5 +16,4 @@
 </script>
 
 <style lang="scss" scoped>
-  
 </style>

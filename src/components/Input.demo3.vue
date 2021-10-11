@@ -1,5 +1,5 @@
 <demo>
-基础用法
+可清空
 </demo>
 
 <template>
@@ -16,5 +16,4 @@
 </script>
 
 <style lang="scss" scoped>
-  
 </style>
